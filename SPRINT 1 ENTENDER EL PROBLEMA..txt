@@ -1,0 +1,129 @@
+SPRINT 1: ENTENDER EL PROBLEMA.
+
+1.	ODS originales a replantear.
+
+Elegimos 2 ODS originales:
+
+ODS original 1:
+
+•	ODS 4 – Educación de calidad.
+Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida.
+ODS original 2:
+•	ODS 12 – Producción y consumos responsables.
+Garantizar modalidades de consumo y producción sostenibles.
+2.	ODS reformulados (ODS 2.0).
+Cada ODS original tendrá al menos 1 ODS 2.0 
+
+ODS 4 → ODS 4.2.0
+ODS 2.0: “Acceso digital educativo medible”
+Definición
+Aumentar el acceso a recursos educativos digitales básicos en centros públicos, midiendo conectividad real, uso efectivo y formación del profesorado.
+Por qué mejora al original
+•	El ODS original es muy genérico.
+•	Este es medible, tecnológico y evaluable.
+•	Se adapta muy bien a un sistema de base de datos.
+Métricas 
+•	% de aulas con acceso a internet funcional
+•	Nº de dispositivos por alumno
+•	% de profesorado con formación digital certificada
+Evidencias 
+•	Informes del Ministerio de Educación
+•	Auditorías TIC de centros educativos
+
+ODS 12 → ODS 12.2.0
+
+ODS 2.0: “Reducción medible de residuos tecnológicos”
+
+Definición
+Reducir los residuos electrónicos mediante reutilización, reciclaje certificado y control de obsolescencia en organizaciones.
+Por qué mejora al original
+•	Se centra en un problema concreto (e-waste).
+•	Permite métricas claras y evidencias técnicas.
+•	Encaja perfecto con sostenibilidad + tecnología.
+Métricas 
+•	Kg de residuos electrónicos reciclados/año
+•	% de dispositivos reutilizados
+•	Vida media de los dispositivos (años)
+Evidencias 
+•	Certificados de reciclaje
+•	Informes internos de inventario TIC
+
+3.	Reglas de viabilidad
+Criterios de viabilidad (0–10)
+•	Impacto → beneficio social/ambiental
+•	Coste → inversión necesaria
+•	Tiempo → plazo de implementación
+•	Riesgo → probabilidad de fallo
+
+Fórmula propuesta.
+
+VIABILIDAD = (Impacto * 0.4) + (10 - Coste) * 0.2
++ (10 - Tiempo) * 0.2 + (10 - Riesgo) * 0.2
+
+Por qué esta fórmula
+•	El impacto pesa más (ODS → impacto social).
+•	Coste, tiempo y riesgo restan viabilidad.
+•	Escala uniforme → fácil de programar en PL/SQL.
+
+Resultado final: 0 a 10
+•	0–3 → No viable
+•	4–6 → Viable con reservas
+•	7–10 → Viable
+
+4.	Boceto ER (explicado)
+
+Entidades mínimas previstas:
+
+1.	ODS_ORIGINAL
+
+o	id_ods_original (PK)
+o	nombre
+o	descripción
+
+2.	ODS_2
+
+o	id_ods2 (PK)
+o	id_ods_original (FK)
+o	nombre
+o	descripcion
+o	estado (BORRADOR / REVISION / APROBADO)
+
+3.	METRICA
+
+o	id_metrica (PK)
+o	id_ods2 (FK)
+o	nombre
+o	unidad
+o	valor_objetivo
+
+4.	EVIDENCIA
+
+o	id_evidencia (PK)
+o	id_ods2 (FK)
+o	descripcion
+o	fuente
+o	fiabilidad (0–5)
+
+5.	VIABILIDAD
+
+o	id_viabilidad (PK)
+o	id_ods2 (FK)
+o	impacto
+o	coste
+o	tiempo
+o	riesgo
+o	puntuacion_final
+
+
+
+6.	HISTORIAL_ESTADOS (opcional pero muy bien visto)
+
+o	id_historial (PK)
+o	id_ods2 (FK)
+o	estado_anterior
+o	estado_nuevo
+o	fecha
+
+Se ha optado por un modelo relacional normalizado para evitar redundancia y facilitar el cálculo automático de la viabilidad. La separación entre ODS original y ODS 2.0 permite mantener trazabilidad entre objetivos globales y reformulados. El uso de métricas y evidencias independientes facilita la extensibilidad del sistema y su evaluación objetiva mediante PL/SQL.
+
+
