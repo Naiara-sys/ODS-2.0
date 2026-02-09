@@ -1,5 +1,8 @@
 # ODS-2.0
 Reto ETHAZI: “ODS 2.0”
+## Diagrama ER
+![Diagrama ER](tablas.png)
+
 ## Descripción del Proyecto
 Somos el equipo técnico de un Observatorio de Sostenibilidad encargado de revisar los Objetivos de Desarrollo Sostenible (ODS). Los ODS originales son demasiado genéricos, por lo que creamos ODS 2.0: versiones más realistas, medibles y evaluables. El sistema de base de datos con PL/SQL permite almacenar ODS originales, crear ODS reformulados vinculados, definir métricas, evidencias y calcular viabilidad automáticamente.
 
