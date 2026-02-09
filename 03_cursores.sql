@@ -173,13 +173,6 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('     Total de evaluaciones actualizadas: ' || v_registros_actualizados);
     DBMS_OUTPUT.PUT_LINE('=============================================');
 
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        DBMS_OUTPUT.PUT_LINE('No hay evaluaciones de viabilidad pendientes de calcular.');
-        ROLLBACK; -- Si no se encuentran datos devolver todo a su estado original
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('ERROR: ' || SQLERRM);
-        ROLLBACK; -- Si da algun tipo de error devolver todo a su estado original
 END;
 /
 
