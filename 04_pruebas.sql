@@ -144,7 +144,7 @@ PROMPT
 PROMPT ============================================================================
 PROMPT PRUEBA 4: CURSOR EXPLÍCITO - Verificar conteo de métricas por ODS
 PROMPT ============================================================================
-PROMPT Resultado esperado: ODS 101 debe tener 3 métricas, ODS 102 debe tener 3
+PROMPT Resultado esperado: ODS 101 debe tener 3 métricas, ODS 102 debe tener 4
 PROMPT 
 
 DECLARE
@@ -162,9 +162,9 @@ BEGIN
         
         DBMS_OUTPUT.PUT_LINE('ODS ' || ods.id_ods2 || ': ' || v_num_metricas || ' métricas');
         
-        IF v_num_metricas <> 3 THEN
+        IF (ods.id_ods2 = 101 AND v_num_metricas <> 3) OR (ods.id_ods2 = 102 AND v_num_metricas <> 4) THEN
             v_test_ok := FALSE;
-            DBMS_OUTPUT.PUT_LINE('  ✗ Error: Se esperaban 3 métricas');
+            DBMS_OUTPUT.PUT_LINE('  ✗ Error: ODS ' || ods.id_ods2 || ' debe tener ' || CASE WHEN ods.id_ods2 = 101 THEN 3 ELSE 4 END || ' métricas');
         ELSE
             DBMS_OUTPUT.PUT_LINE('  ✓ Correcto');
         END IF;

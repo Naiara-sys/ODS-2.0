@@ -14,7 +14,7 @@ INSERT INTO ods_2 (id_ods2, id_ods_original, nombre, descripcion, estado, fecha_
 VALUES (101, 1, 'Acceso digital educativo medible', 'Mejorar el acceso real a recursos digitales en centros educativos.', 'BORRADOR', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'sistema');
 
 INSERT INTO ods_2 (id_ods2, id_ods_original, nombre, descripcion, estado, fecha_creacion, fecha_modificacion, usuario_creador)
-VALUES (102, 2, 'Reducción medible de residuos tecnológicos', 'Reducir el impacto ambiental del residuo electrónico.', 'BORRADOR', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'sistema');
+VALUES (102, 2, 'Reducción y gestión sostenible de residuos', 'Reducir de forma medible la generación de residuos en organizaciones y territorios mediante políticas de prevención, reutilización y reciclaje, permitiendo evaluar el impacto ambiental real de la gestión de desechos y el grado de cumplimiento de la economía circular.', 'BORRADOR', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'sistema');
 
 -- METRICA
 INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_actual, fecha_objetivo)
@@ -27,13 +27,16 @@ INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_
 VALUES (3, 101, 'Profesorado con formación digital certificada', '%', 80, 0, NULL);
 
 INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_actual, fecha_objetivo)
-VALUES (4, 102, 'Residuos electrónicos reciclados', 'kg/año', 500, 0, NULL);
+VALUES (4, 102, 'Porcentaje de residuos reutilizados', '%', 50, 0, NULL);
 
 INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_actual, fecha_objetivo)
-VALUES (5, 102, 'Dispositivos reutilizados', '%', 40, 0, NULL);
+VALUES (5, 102, 'Porcentaje de residuos destinados a vertedero', '%', 20, 0, NULL);
 
 INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_actual, fecha_objetivo)
-VALUES (6, 102, 'Vida media de dispositivos', 'años', 5, 0, NULL);
+VALUES (6, 102, 'Existencia de políticas de prevención y reducción de residuos', 'Sí/No', 1, 0, NULL);
+
+INSERT INTO metrica (id_metrica, id_ods2, nombre, unidad, valor_objetivo, valor_actual, fecha_objetivo)
+VALUES (7, 102, 'Porcentaje de residuos gestionados por operadores autorizados', '%', 90, 0, NULL);
 
 -- EVIDENCIA
 INSERT INTO evidencia (id_evidencia, id_ods2, descripcion, fuente, fiabilidad, tipo_fuente, fecha_publicacion, url)
@@ -43,10 +46,10 @@ INSERT INTO evidencia (id_evidencia, id_ods2, descripcion, fuente, fiabilidad, t
 VALUES (2, 101, 'Auditoría TIC de centros públicos', 'Consejería autonómica', 3, 'Informe oficial', NULL, NULL);
 
 INSERT INTO evidencia (id_evidencia, id_ods2, descripcion, fuente, fiabilidad, tipo_fuente, fecha_publicacion, url)
-VALUES (3, 102, 'Certificado oficial de reciclaje electrónico', 'Empresa gestora autorizada', 5, 'Informe oficial', NULL, NULL);
+VALUES (3, 102, 'Informe de gestores de residuos autorizados', 'Empresa gestora autorizada', 5, 'Informe oficial', NULL, NULL);
 
 INSERT INTO evidencia (id_evidencia, id_ods2, descripcion, fuente, fiabilidad, tipo_fuente, fecha_publicacion, url)
-VALUES (4, 102, 'Informe interno de inventario tecnológico', 'Departamento TIC', 3, 'Estudio', NULL, NULL);
+VALUES (4, 102, 'Auditorías ambientales de gestión de residuos', 'Consejería autonómica de medio ambiente', 4, 'Informe oficial', NULL, NULL);
 
 -- VIABILIDAD
 INSERT INTO viabilidad (id_viabilidad, id_ods2, impacto, coste, tiempo, riesgo, puntuacion_final, fecha_evaluacion, evaluador, observaciones)
